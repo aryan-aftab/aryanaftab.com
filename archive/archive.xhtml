@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<!-- aryanaftab.com - Archive -->
+
+<!-- Copyright (c) 2024 Aryan -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+
+<!-- Version: 1.0.0 -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="icon" type="image/png" href="../media/images/icon.png"/>
+        <link rel="stylesheet" href="../assets/css/main.css"/>
+        <script src="../assets/js/persistent-light-theme-toggle.js" defer="defer"></script>
+        <meta property="og:description" content="Aryan Aftab's archive page."/>
+        <meta property="og:title" content="Archive"/>
+        <meta property="og:image" content="https://aryanaftab.com/media/images/profile_image.png"/>
+        <meta property="og:url" content="https://aryanaftab.com/archive"/>
+        <meta name="description" content="Aryan Aftab's archive page."/>
+        <meta name="keywords" content="Arch, Linux, Security, Gentoo, Mathematics, Quant, Finance, Trading"/>
+        <meta name="author" content="Aryan Aftab"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Archive</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <a href="../index.xhtml">Home</a>
+                <a class="active" href="../archive/archive.xhtml">Archive</a>
+                <a href="../contact.xhtml">Contact</a>
+                <a href="../keys.xhtml">Keys</a>
+                <a href="../source.xhtml">Source</a>
+                <a href="../mirrors.xhtml">Mirrors</a>
+                <label for="light-mode-button">
+                    <input type="checkbox" id="light-mode-button"/>
+                    <span class="check"></span>
+                </label>
+            </nav>
+        </header>
+
+        <h1>Archive</h1>
+
+        <h2>Contents</h2>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                    <ul>
+                        <li><a href="#ai-assistant">LLM-Based Analytical Assistant</a></li>
+                        <li><a href="#rpi-rev-proxy">Raspberry Pi Reverse Proxy</a></li>
+                        <li><a href="#ergo-keyboard">Ergonomic Keyboard</a></li>
+                    </ul>
+            </ul>
+
+        <h3 id="projects">Projects</h3>
+
+        <h4 id="ai-assistant">LLM-Based Analytical Assitant</h4>
+            <p> This project showcases a locally-hosted analytical assistant utilizing various open-source models, fine-tuned for optimal performance. It excels in assisting with code generation and quantitative analysis, making it an ideal solution for sovereign operations without reliance on third-party cloud infrastructure.</p>
+            <p>This approach significantly enhances security and data privacy, which is increasingly important amid ongoing regulatory changes and uncertainties.</p>
+            <p>This tool has been an <b>instrumental</b> aid to my personal learning and development.</p>
+
+            <figure>
+                <img class="center medium" alt="ai-assistant" src="../media/images/analytical_assistant.png"/>
+                <figcaption class="center"><b>Figure 1:</b> Interacting with <a href="https://openai.com/index/introducing-gpt-oss/">gpt-oss</a> using <a href="https://github.com/oobabooga/text-generation-webui">text-generation-webui</a>.</figcaption>
+            </figure>
+
+        <h4 id="rpi-rev-proxy">Raspberry Pi Reverse Proxy</h4>
+            <p>Initially, I faced the challenge of accessing internal services outside my local network. To address this, I embarked on a project to create a small reverse proxy using a <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a>.</p>
+            <p>My ISP unfortunately was not able to provide me with a static IP, which is required in the first place to host services, since I was behind a <a href="https://en.wikipedia.org/wiki/Carrier-grade_NAT">CGNAT</a>. However, one solution to this was to connect the Raspberry Pi to a cloud VPS provider via <a href="https://www.wireguard.com/">WireGuard</a>, which a highly secure state-of-the-art VPN protocol.</p>
+            <p>Utilizing this setup in conjunction with <a href="https://en.wikipedia.org/wiki/Iptables#:~:text=iptables%20is%20a%20user%2Dspace,implemented%20as%20different%20Netfilter%20modules.">iptables</a> enabled me to assign a static IP to the Raspberry Pi, facilitating remote access from external networks and allowing services to be seamlessly forwarded to its ports.</p>
+            <p>This setup not only enhances security by isolating internal networks but also refines my network administration and security skills, demonstrating the power of innovative network solutions.</p>
+
+            <figure>
+                <img class="center medium" alt="keyboard" src="../media/images/raspberry_pi.jpg"/>
+                <figcaption class="center"><b>Figure 1:</b> Raspberry Pi 5 with a <a href="https://en.wikipedia.org/wiki/Power_over_Ethernet">PoE</a> Hat.</figcaption>
+            </figure>
+
+        <h4 id="ergo-keyboard">Ergonomic Keyboard</h4>
+            <p>Embarking on the development of a custom split keyboard was a highly rewarding endeavor that seamlessly integrated my passion for ergonomics and efficient
+            typing. The design drew inspiration from the <a href="https://github.com/kaievns/halmak">Halmak layout</a>, renowned for its optimized key placement that minimizes
+            finger travel and enhances typing speed.</p>
+            <p>To achieve a truly ergonomic configuration, I utilized <a href="https://www.kicad.org/">KiCad</a> to modify open-source PCB designs, enabling the creation of a
+            staggered layout that aligns perfectly with my hand's natural resting position, ensuring both comfort and accessibility.</p>
+            <p>Subsequently, I compiled and flashed the firmware using <a href="https://github.com/qmk/qmk_firmware">QMK</a>, an open-source keyboard firmware renowned for its extensive
+            customization capabilities. After extensive experimentation with the layout, I achieved a remarkable ~30% increase in typing speed, elevating my initial 120 WPM to 150 WPM.</p>
+
+            <figure>
+                <img class="center medium" alt="keyboard" src="../media/images/keyboard.jpg"/>
+                <figcaption class="center"><b>Figure 1:</b> Prototype build of Asuna MK1.</figcaption>
+            </figure>
+        <footer>
+            <p>&#169; 2025 Aryan Aftab</p>
+        </footer>
+    </body>
+</html>

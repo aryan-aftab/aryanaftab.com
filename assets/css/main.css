@@ -1,0 +1,613 @@
+/* aryanaftab.com - Main Style Sheet */
+
+/* Copyright (c) 2024 Aryan */
+/* SPDX-License-Identifier: BSD-3-Clause */
+
+/* Version: 1.0.0 */
+
+/* Transitions */
+@view-transition {
+    navigation: auto;
+}
+
+/* colors */
+
+@property --link-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #62aee4;
+}
+
+@property --border-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #ddd;
+}
+
+@property --fg-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #ffffff;
+}
+
+@property --bg-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #1e1e1e;
+}
+
+@property --nav-hover-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2e2e2e;
+}
+
+@property --th-bg-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #4a4a4a;
+}
+
+@property --code-fg-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #e0e0e0;
+}
+
+@property --code-bg-color {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2d2d2d;
+}
+
+/** light theme **/
+:root {
+    &:has(#light-mode-button:checked) {
+        --link-color: #3a7ca0;
+        --border-color: #000000;
+        --fg-color: #000000;
+        --bg-color: #f0f0f0;
+        --nav-hover-color: #e0e0e0;
+        --th-bg-color: #bababa;
+        --code-fg-color: #44474e;
+        --code-bg-color: #c4c6cf;
+    }
+}
+
+/* html classes */
+html {
+    height: 100%;
+}
+
+/* body classes */
+body {
+    margin: 0;
+    padding-bottom: 40px;
+    position: relative;
+    top: 50px;
+    font-family: sans-serif;
+    line-height: 1.2;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+}
+
+/* h1 classes */
+h1 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 35px;
+    word-wrap: break-word;
+
+    &.center {
+        text-align: center;
+    }
+
+    &.profile-name {
+        line-height: 0;
+    }
+}
+
+/* h2 classes */
+h2 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    word-wrap: break-word;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+/* h3 classes */
+h3 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    word-wrap: break-word;
+}
+
+/* h4 classes */
+h4 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+/* h5 classes */
+h5 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    word-wrap: break-word;
+}
+
+/* p classes */
+p {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    word-wrap: break-word;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+/* a classes */
+a {
+    text-decoration: none;
+    color: var(--link-color);
+
+    &:visited {
+        color: var(--link-color);
+    }
+}
+
+/* ol classes */
+ol {
+    li {
+        margin-bottom: 10px;
+    }
+}
+
+/* li classes */
+li {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+/* table classes */
+table {
+    width: 50%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    text-align: left;
+}
+
+/* th classes */
+th {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    color: var(--fg-color);
+    background-color: var(--th-bg-color);
+
+    &.center {
+        text-align: center;
+    }
+}
+
+/* td classes */
+td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    overflow-wrap: break-word;
+
+    code {
+        width: 100%;
+    }
+
+    &.center {
+        text-align: center;
+    }
+}
+
+/* col classes */
+col {
+    &.thin {
+        width: 20%;
+    }
+
+    &.wide {
+        width: 80%;
+    }
+}
+
+/* img classes */
+img {
+    max-width: 50%;
+
+    &.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.medium {
+        max-width: 30%;
+    }
+
+    &.profile-picture {
+        margin-top: 40px;
+        border-radius: 50%;
+        max-width: 15%;
+    }
+
+    &.right {
+        float: right;
+        margin-left: 2%;
+        margin-right: 25%;
+        margin-bottom: 2%;
+    }
+
+    &.small {
+        max-width: 15%;
+    }
+}
+
+/* figcaption classes */
+figcaption {
+    width: 50%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* code classes */
+code {
+    width: 50%;
+    font-size: 20px;
+    word-wrap: break-word;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 2px;
+    color: var(--code-fg-color);
+    background-color: var(--code-bg-color);
+}
+
+/* nav classes */
+nav {
+    &.navbar {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        line-height: 1.5;
+        background-color: var(--bg-color);
+    	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+
+        /* Reduce shadow if its on light theme */
+        &:has(#light-mode-button:checked) {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        a {
+            padding: 15px;
+            display: block;
+            float: left;
+            font-size: 18px;
+            text-decoration: none;
+            color: var(--fg-color);
+
+            &.active {
+                color: var(--link-color);
+            }
+
+            &:hover {
+                background-color: var(--nav-hover-color);
+            }
+        }
+
+        /* Light Mode Button */
+        label[for="light-mode-button"] {
+            display: block;
+            float: right;
+            margin-top: 18.5px;
+            margin-right: 30px;
+
+            height: 20px;
+            width: 50px;
+            background-color: var(--bg-color);
+            border-radius: 20px;
+            box-shadow: 0 0 0 2px var(--border-color);
+            cursor: pointer;
+            transition: ease-in 0.3s;
+            overflow: hidden;
+
+            input[type="checkbox"] {
+                -webkit-appearance: none;
+                visibility: hidden;
+                display: none;
+            }
+
+            /* Small circle within the light mode button */
+            span.check {
+                margin-top: 2px;
+                margin-left: 2px;
+                display: block;
+                height: 16px;
+                width: 16px;
+                background-color: var(--fg-color);
+                border-radius: 50%;
+                transition: 0.5s;
+            }
+            
+            /* Move and change color when light mode is enabled */
+            &:has(#light-mode-button:checked) span.check {
+                transform: translateX(30px);
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
+/* footer classes */
+footer {
+    text-align: left;
+}
+
+/** custom classes **/
+
+/* social container */
+.social-container {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+
+    img {
+        border-radius: 15%;
+        width: 150px;
+        height: 150px;
+        margin: 15px;
+    }
+}
+
+/** smaller displays **/
+
+@media (max-width: 800px) {
+    /* navbar classes */
+    nav {
+        &.navbar {
+            display: flex;
+            overflow-x: scroll;
+            line-height: 1;
+
+            label[for="light-mode-button"] {
+                display: none;
+            }
+        }
+    }
+}
+
+/* tablet size */
+@media (min-width: 600px) and (max-width: 1500px) {
+    /* h1 classes */
+    h1 {
+        width: 80%;
+    }
+
+    /* h2 classes */
+    h2 {
+        width: 80%;
+    }
+
+    /* h3 classes */
+    h3 {
+        width: 80%;
+    }
+
+    /* h4 classes */
+    h4 {
+        width: 80%;
+    }
+
+    /* h5 classes */
+    h5 {
+        width: 80%;
+    }
+
+    /* p classes */
+    p {
+        width: 80%;
+    }
+
+    /* li classes */
+    li {
+        width: 80%;
+    }
+
+    /* table classes */
+    table {
+        width: 80%;
+    }
+
+    /* img classes */
+    img {
+        width: 80%;
+        max-width: 80%;
+
+        &.medium {
+            max-width: 70%;
+        }
+
+        &.profile-picture {
+            margin-top: 40px;
+            border-radius: 50%;
+            max-width: 25%;
+        }
+
+        &.small {
+            max-width: 30%;
+        }
+
+        &.right {
+            margin-right: 15%;
+        }
+    }
+
+    /* figcaption classes */
+    figcaption {
+        width: 80%;
+    }
+
+    /* code classes */
+    code {
+        width: 80%;
+    }
+
+    /** custom classes **/
+
+    /* social container */
+    .social-container {
+        width: 80%;
+
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+    }
+}
+
+/* smartphone size */
+
+@media (max-width: 600px) {
+    /* body classes */
+    body {
+        top: 40px;
+    }
+
+    /* h1 classes */
+    h1 {
+        width: 90%;
+        font-size: 30px;
+    }
+
+    /* h2 classes */
+    h2 {
+        width: 90%;
+        font-size: 25px;
+    }
+
+    /* h3 classes */
+    h3 {
+        width: 90%;
+        font-size: 20px;
+    }
+
+    /* h4 classes */
+    h4 {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    /* h5 classes */
+    h5 {
+        width: 90%;
+        font-size: 13px;
+    }
+
+    /* p classes */
+    p {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    /* li classes */
+    li {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    /* table classes */
+    table {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    /* col classes */
+    col {
+        &.thin {
+            width: 30%;
+        }
+    
+        &.wide {
+            width: 70%;
+        }
+    }
+
+    /* img classes */
+    img {
+        max-width: 80%;
+
+        &.medium {
+            max-width: 70%;
+        }
+
+        &.profile-picture {
+            margin-top: 30px;
+            max-width: 40%;
+        }
+
+        &.right {
+            margin-right: 5%;
+            padding: 10px;
+        }
+
+        &.small {
+            max-width: 30%;
+        }
+    }
+
+    /* figcaption classes */
+    figcaption {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    /* code classes */
+    code {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    /** custom classes **/
+    
+    /* social container */
+    .social-container {
+        width: 90%;
+
+        img {
+            width: 75px;
+            height: 75px;
+            margin: 5px;
+        }
+    }
+}
