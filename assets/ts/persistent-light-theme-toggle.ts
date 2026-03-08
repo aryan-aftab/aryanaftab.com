@@ -1,5 +1,5 @@
 // Script: persistent-light-theme-toggle.ts
-// Copyright (c) 2025 Aryan
+// Copyright (c) 2025-2026 Aryan
 // SPDX-License-Identifier: BSD-3-Clause
 // Version: 1.0.0
 document.addEventListener('DOMContentLoaded', () => {
