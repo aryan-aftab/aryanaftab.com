@@ -1,0 +1,710 @@
+/* aryanaftab.com - Main Style Sheet */
+
+/* Copyright (c) 2024-2026 Aryan */
+/* SPDX-License-Identifier: BSD-3-Clause */
+
+/*
+ * Dark theme (first-pass vibe): near-black base, teal accent, soft cards.
+ * Shared by every page. Mobile-first where it matters (skills, nav).
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Tokens                                                                     */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #07090d;
+  --bg-card: #12171f;
+  --bg-nav: #0c0f14;
+
+  --fg: #e8edf5;
+  --fg-muted: #8b97a8;
+  --fg-dim: #5c6778;
+
+  --border: #1e2633;
+  --border-hover: #2a3548;
+
+  --accent: #5eead4;
+  --accent-dim: rgba(94, 234, 212, 0.12);
+  --accent-text: #99f6e4;
+  --accent-glow: rgba(94, 234, 212, 0.2);
+
+  --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Syne", var(--font-sans);
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --width: 68rem;
+  --text: 40rem;
+  --nav-h: 3.5rem;
+  --radius: 0.9rem;
+  --pad: 1.25rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Base                                                                       */
+/* -------------------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  padding: calc(var(--nav-h) + 2rem) 0 3rem;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--fg);
+  background: var(--bg);
+  /* Soft top glow — cheap, no blur filters on scroll */
+  background-image: radial-gradient(
+    ellipse 80% 40% at 50% -10%,
+    var(--accent-glow),
+    transparent 55%
+  );
+  background-attachment: scroll;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--fg);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 3.75rem);
+}
+
+h2 {
+  font-size: clamp(1.55rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--fg-muted);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Layout shell                                                               */
+/* -------------------------------------------------------------------------- */
+
+.wrap {
+  width: min(100% - 2rem, var(--width));
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Navigation                                                                 */
+/* Solid bar (no backdrop-filter — keeps mobile scroll smooth)                */
+/* -------------------------------------------------------------------------- */
+
+body > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--nav-h);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-nav);
+}
+
+nav.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+}
+
+nav.navbar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--fg);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+nav.navbar .brand:hover {
+  color: var(--fg);
+}
+
+/* Small circular portrait instead of initials */
+nav.navbar .brand img.mark {
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border));
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bg-card);
+}
+
+nav.navbar ul {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav.navbar ul a {
+  display: block;
+  padding: 0.4rem 0.7rem;
+  border-radius: 0.4rem;
+  color: var(--fg-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+nav.navbar ul a:hover {
+  color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 6%, transparent);
+}
+
+nav.navbar ul a.active {
+  color: var(--accent-text);
+}
+
+/* Top-right mail — full address on wider screens */
+nav.navbar a.nav-email {
+  margin-left: 0.25rem;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+nav.navbar a.nav-email:hover {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+}
+
+/* Short label only when the full address would crowd the bar */
+nav.navbar a.nav-email .nav-email-short {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  nav.navbar a.nav-email .nav-email-full {
+    display: none;
+  }
+
+  nav.navbar a.nav-email .nav-email-short {
+    display: inline;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero (home)                                                                */
+/* -------------------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 880px) {
+  .hero {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.hero .status {
+  display: inline-block;
+  margin: 0 0 1.15rem;
+  padding: 0.35rem 0.8rem 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--fg-muted);
+  font-size: 0.84rem;
+}
+
+.hero .status::before {
+  content: "";
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+  vertical-align: 0.05em;
+}
+
+.hero h1 {
+  margin-bottom: 0.35rem;
+}
+
+.hero .tagline {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--accent-text);
+}
+
+.hero .lede {
+  max-width: 32rem;
+  margin: 0 0 1.75rem;
+  font-size: clamp(1.12rem, 2.1vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+  color: var(--fg);
+}
+
+/* Short claims on their own lines — more presence than one run-on block */
+.hero .lede-beat {
+  display: block;
+  margin-top: 0.35rem;
+  font-weight: 700;
+  color: var(--accent-text);
+  letter-spacing: -0.02em;
+}
+
+.hero .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0 0 1.75rem;
+}
+
+/* Primary / secondary buttons */
+a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: #042f2e;
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.button:hover {
+  color: #042f2e;
+  filter: brightness(1.06);
+  text-decoration: none;
+}
+
+a.button.quiet {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--border-hover);
+}
+
+a.button.quiet:hover {
+  color: var(--fg);
+  background: color-mix(in srgb, var(--fg) 5%, transparent);
+  filter: none;
+}
+
+/* Full address on the home hero — easy to spot / copy mentally */
+a.button.email {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--accent-text);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: var(--accent-dim);
+}
+
+a.button.email:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  filter: none;
+}
+
+@media (max-width: 520px) {
+  a.button.email {
+    width: 100%;
+    font-size: 0.82rem;
+  }
+}
+
+.hero .highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.75rem;
+  margin: 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.hero .highlights li {
+  max-width: 11.5rem;
+  font-size: 0.86rem;
+  line-height: 1.4;
+  color: var(--fg-dim);
+}
+
+.hero .highlights strong {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+/* Portrait */
+.hero figure {
+  margin: 0 auto;
+  padding: 0.55rem;
+  width: min(100%, 20rem);
+  border-radius: 1.35rem;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent) 35%, transparent),
+    var(--border) 50%,
+    color-mix(in srgb, var(--accent) 15%, transparent)
+  );
+  box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.85);
+}
+
+.hero figure img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  object-fit: cover;
+  background: var(--bg-card);
+}
+
+.hero figure figcaption {
+  margin: 0.55rem 0.2rem 0.1rem;
+  text-align: center;
+  color: var(--fg-dim);
+  font-size: 0.8rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Page sections                                                              */
+/* -------------------------------------------------------------------------- */
+
+main > section {
+  padding: 2.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-head {
+  margin-bottom: 1.5rem;
+  max-width: var(--text);
+}
+
+.section-head .eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.section-head .lede {
+  margin-top: 0.5rem;
+}
+
+/* About: text + side notes */
+.about-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 800px) {
+  .about-grid {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 1.75rem;
+    align-items: start;
+  }
+}
+
+.about-grid .prose {
+  max-width: var(--text);
+}
+
+aside.notes {
+  display: grid;
+  gap: 0.75rem;
+}
+
+aside.notes article {
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+aside.notes article h3 {
+  margin-bottom: 0.35rem;
+}
+
+aside.notes article p {
+  font-size: 0.95rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Skills — cards + pills (NOT a wide table; stacks cleanly on phones)        */
+/* -------------------------------------------------------------------------- */
+
+.skills {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (min-width: 720px) {
+  .skills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skills article {
+  padding: 1.2rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.skills article h3 {
+  margin-bottom: 0.35rem;
+}
+
+.skills article > p {
+  margin-bottom: 0.9rem;
+  font-size: 0.92rem;
+}
+
+/* Pill list */
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  padding: 0.32rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 70%, var(--bg-card));
+  color: var(--fg);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Work page — project articles                                               */
+/* -------------------------------------------------------------------------- */
+
+#work article,
+.project {
+  margin-top: 1.75rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+#work article:first-of-type,
+.project:first-of-type {
+  margin-top: 0;
+}
+
+.project .meta {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.project figure {
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.project figure img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: contain;
+  object-position: center;
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  background: #0a0c10;
+}
+
+.project figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--fg-dim);
+  font-size: 0.86rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Inner page title block                                                     */
+/* -------------------------------------------------------------------------- */
+
+.page-title {
+  margin-bottom: 2rem;
+  max-width: var(--text);
+}
+
+.page-title .eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Footer                                                                     */
+/* -------------------------------------------------------------------------- */
+
+body > footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+body > footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+}
+
+body > footer p {
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 0.9rem;
+}
+
+body > footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+
+body > footer nav a {
+  color: var(--fg-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+body > footer nav a:hover {
+  color: var(--accent-text);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Small phones                                                               */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 520px) {
+  body {
+    font-size: 1rem;
+    padding-top: calc(var(--nav-h) + 1.25rem);
+  }
+
+  .wrap {
+    width: min(100% - 1.25rem, var(--width));
+  }
+
+  /* Hide brand text if needed; keep mark + links readable */
+  nav.navbar .brand-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  nav.navbar ul a {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.88rem;
+  }
+
+}

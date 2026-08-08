@@ -1,0 +1,12 @@
+# aryanaftab.com - robots.txt
+# Copyright (c) 2026 Aryan
+# Version: 0.0.1
+
+User-agent: Googlebot
+Disallow:
+
+User-agent: DuckDuckBot
+Disallow:
+
+User-agent: *
+Disallow: /

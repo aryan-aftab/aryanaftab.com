@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<!-- aryanaftab.com - Work -->
+
+<!-- Copyright (c) 2024-2026 Aryan -->
+<!-- SPDX-License-Identifier: BSD-3-Clause -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Aryan Aftab's selected work."/>
+    <meta name="keywords" content="Arch, Linux, Security, Gentoo, Mathematics, Quant, Finance, Trading"/>
+    <meta name="author" content="Aryan Aftab"/>
+    <meta name="theme-color" content="#07090d"/>
+
+    <meta property="og:title" content="Work"/>
+    <meta property="og:description" content="Aryan Aftab's selected work."/>
+    <meta property="og:url" content="https://aryanaftab.com/work"/>
+    <meta property="og:image" content="https://aryanaftab.com/media/images/profile_image.png"/>
+
+    <link rel="icon" type="image/png" href="media/images/web/icon.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@500;600&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+
+    <title>Work</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar wrap" aria-label="Primary">
+        <a class="brand" href="index.xhtml">
+          <img class="mark" src="media/images/web/profile.jpg" alt="" width="32" height="32"/>
+          <span class="brand-text">Aryan Aftab</span>
+        </a>
+        <ul>
+          <li><a href="index.xhtml">Home</a></li>
+          <li><a class="active" href="work.xhtml">Work</a></li>
+          <li>
+            <a class="nav-email" href="mailto:contact@aryanaftab.com">
+              <span class="nav-email-full">contact@aryanaftab.com</span>
+              <span class="nav-email-short">Email</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="wrap" id="work">
+      <header class="page-title">
+        <p class="eyebrow">Archive</p>
+        <h1>Selected work</h1>
+        <p>
+          Projects that show how I think.
+        </p>
+      </header>
+
+      <article class="project" id="fin-model-bdrr">
+        <p class="meta">Finance · Excel · Scenario analysis</p>
+        <h2>Financial modelling BDRR investments</h2>
+        <p>
+          Applied financial analysis to evaluate the profitability of the
+          <strong>Build, Develop, Refinance, Repeat (BDRR)</strong> strategy
+          compared to traditional investments like the S&amp;P 500. Built a
+          custom Excel model with realistic market data and assumptions to
+          compare return paths and support investment decisions.
+        </p>
+        <figure>
+          <img
+            src="media/images/web/bdrr_analysis.jpg"
+            alt="Comparative analysis of BDRR versus S and P 500 returns"
+            width="960"
+            height="705"
+            loading="lazy"
+          />
+          <figcaption>
+            Figure 1: Comparative analysis of BDRR vs. S&amp;P 500 returns.
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="ai-assistant">
+        <p class="meta">AI · LLMs · Local inference</p>
+        <h2>Local AI Agent</h2>
+        <p>
+          A locally hosted analytical assistant using open-source models, tuned
+          for code generation and quantitative work. Runs without third-party
+          cloud infrastructure, which keeps data on machines I control; useful
+          when privacy and regulatory uncertainty matter.
+        </p>
+        <figure>
+          <img
+            src="media/images/web/analytical_assistant.jpg"
+            alt="Screenshot of a local LLM session in text-generation-webui"
+            width="960"
+            height="983"
+            loading="lazy"
+          />
+          <figcaption>
+            Figure 2: Local open-source model via text-generation-webui.
+          </figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="rpi-rev-proxy">
+        <p class="meta">Infra · WireGuard · Networking</p>
+        <h2>Raspberry Pi reverse proxy</h2>
+        <p>
+          Needed remote access to internal services while stuck behind CGNAT
+          with no static IP from the ISP. A Raspberry Pi 5 connects to a VPS
+          over WireGuard; iptables forwards traffic so the Pi effectively has a
+          stable address without opening the whole LAN.
+        </p>
+        <figure>
+          <img
+            src="media/images/web/raspberry_pi.jpg"
+            alt="Raspberry Pi 5 with a Power over Ethernet hat"
+            width="960"
+            height="723"
+            loading="lazy"
+          />
+          <figcaption>Figure 3: Raspberry Pi 5 with a PoE hat.</figcaption>
+        </figure>
+      </article>
+
+      <article class="project" id="ergo-keyboard">
+        <p class="meta">Hardware · KiCad · QMK</p>
+        <h2>Ergonomic split keyboard</h2>
+        <p>
+          Custom split keyboard inspired by the Halmak layout. Modified
+          open-source PCB designs in KiCad for a staggered, natural hand
+          position, then flashed firmware with QMK. After settling on a layout,
+          typing speed went from about 120 WPM to about 150 WPM.
+        </p>
+        <figure>
+          <img
+            src="media/images/web/keyboard.jpg"
+            alt="Prototype build of the Asuna MK1 split keyboard"
+            width="960"
+            height="723"
+            loading="lazy"
+          />
+          <figcaption>Figure 4: Prototype build of HALK-V1.</figcaption>
+        </figure>
+      </article>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>&#169; 2026 Aryan Aftab</p>
+        <nav aria-label="Footer">
+          <a href="index.xhtml">Home</a>
+          <a href="https://src.aryanaftab.com">Source</a>
+          <a href="https://github.com/aryan-aftab">GitHub</a>
+          <a href="mailto:contact@aryanaftab.com">contact@aryanaftab.com</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
